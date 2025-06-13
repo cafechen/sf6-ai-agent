@@ -38,7 +38,7 @@ def grab_screen(region=None):
 
 
 # Load the YOLOv8 model
-model = YOLO(r"best.pt")
+model = YOLO(r"D:\best.pt")
 screen_region = (26, 50, 1200, 750)
 
 
