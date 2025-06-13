@@ -2,8 +2,8 @@
 StreetFighter6 AI Agent
 
 ##  Installation
-1. conda create -n yolov11 python=3.9
-2. conda activate yolov11
+1. conda create -n sf6 python=3.9
+2. conda activate sf6
 3. conda install pytorch(based on your cuda version)
 4. pip install -r requirements.txt
 
