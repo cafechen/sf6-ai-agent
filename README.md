@@ -6,7 +6,7 @@ StreetFighter6 AI Agent
 conda create -n sf6 python=3.9
 conda activate sf6
 python -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128  # based on your cuda version
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 ##  Train/Inference

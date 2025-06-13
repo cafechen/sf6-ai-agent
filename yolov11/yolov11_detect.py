@@ -36,37 +36,50 @@ def grab_screen(region=None):
 
     return img
 
-
-# Load the YOLOv8 model
+# Load the YOLO model
 model = YOLO(r"D:\best.pt")
-screen_region = (26, 50, 1200, 750)
+model.fuse()    # Speed up forward inference
+screen_region = (0, 50, 1280, 770)
 
+start_time = time.time()
 
-def get_box_area(box):
-    # YOLO box contains (x1, y1, x2l, y2)
-    x1, y1, x2, y2 = box.xyxy[0]
-    width = x2 - x1
-    height = y2 - y1
-    return width * height, width, height
-
+fps_list = []
 
 while True:
-    start_time = time.time()
 
     screen_image = grab_screen(screen_region)
 
     # Convert BGRA to BGR
     screen_image = cv2.cvtColor(screen_image, cv2.COLOR_BGRA2BGR)
 
-    results = model(screen_image, iou=0.5, conf=0.4)
+    inference_image = cv2.resize(screen_image, (640, 360))
 
-    # 显示带注释的图像
+    results = model(inference_image, iou=0.5, conf=0.4)
+
+    # show plot
     annotated_image = results[0].plot()
 
-    cv2.imshow("YOLOv8 Inference - Screen Capture", annotated_image)
+    end_time = time.time()
 
-    # 按 'q' 键退出循环
-    if cv2.waitKey(10) & 0xFF == ord('q'):
+    fps = 1 / (end_time - start_time)
+
+    fps_list.append(fps)
+    if len(fps_list) > 30:
+        fps_list.pop(0)
+
+    # Calculate average FPS
+    avg_fps = sum(fps_list) / len(fps_list)
+
+    # Draw FPS on the image
+    cv2.putText(annotated_image, f"FPS: {avg_fps:.2f}", (10, 20),
+               cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
+
+    cv2.imshow("YOLOv11 Inference - Screen Capture", annotated_image)
+
+    # Press 'q' key to exit the loop
+    if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+
+    start_time = time.time()
 
 cv2.destroyAllWindows()
