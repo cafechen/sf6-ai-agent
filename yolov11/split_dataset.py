@@ -15,8 +15,8 @@ dataset/                                dataset/
 '''
 
 # Configuration
-image_dir = 'D:\dataset\lb\images'  # Path to images
-label_dir = 'D:\dataset\lb\labels'  # Path to labels
+image_dir = 'D:\sf6\lb\images'  # Path to images
+label_dir = 'D:\df6\lb\labels'  # Path to labels
 train_ratio = 0.8  # 80% training, 20% validation
 
 # Get all file names without extensions
