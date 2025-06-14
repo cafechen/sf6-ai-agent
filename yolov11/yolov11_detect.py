@@ -4,6 +4,7 @@ import win32gui, win32ui, win32con, win32api
 from ultralytics import YOLO
 import time
 
+
 def grab_screen(region=None):
     hwin = win32gui.GetDesktopWindow()
 
@@ -36,9 +37,10 @@ def grab_screen(region=None):
 
     return img
 
+
 # Load the YOLO model
 model = YOLO(r"D:\best.pt")
-model.fuse()    # Speed up forward inference
+model.fuse()  # Speed up forward inference
 screen_region = (0, 50, 1280, 770)
 
 start_time = time.time()
@@ -72,7 +74,7 @@ while True:
 
     # Draw FPS on the image
     cv2.putText(annotated_image, f"FPS: {avg_fps:.2f}", (10, 20),
-               cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
+                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
 
     cv2.imshow("YOLOv11 Inference - Screen Capture", annotated_image)
 
