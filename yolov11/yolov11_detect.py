@@ -73,8 +73,8 @@ while True:
     avg_fps = sum(fps_list) / len(fps_list)
 
     # Draw FPS on the image
-    cv2.putText(annotated_image, f"FPS: {avg_fps:.2f}", (10, 20),
-                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
+    cv2.putText(annotated_image, f"FPS: {avg_fps:.2f}", (10, 30),
+                cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
     cv2.imshow("YOLOv11 Inference - Screen Capture", annotated_image)
 
