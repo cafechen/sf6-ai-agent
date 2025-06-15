@@ -18,8 +18,8 @@ python -m pip install -r requirements.txt
 - Datasets: [streetfighter6](https://www.kaggle.com/datasets/cafechen/streetfighter6)
 
 ## Contact Me
-📱 WeChat：stevenchen945  
-💬 QQ：45958905
+📱 WeChat: stevenchen945 
+💬 QQ:     45958905
 
 ## ffmpeg 
 ```shell
