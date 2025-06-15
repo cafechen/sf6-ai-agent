@@ -28,7 +28,8 @@ ffmpeg -ss 00:12:45 -to 00:22:43 -i .\bg_1364780_20250610_154512.mp4 -c copy bg_
 ```
 
 ## Contact Me
-
+📱 微信：stevenchen945  
+💬 QQ：45958905
 
 
 <img src="assets/show.png" width="360" />
